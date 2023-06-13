@@ -1,5 +1,5 @@
 const { getAllUsersDB, postUsersCreateDB, getUserByIdDB, putUserUpdateDB, deleteUserDB, patchUsersDB } = require(`../repository/user.repository`);
-const ExceptionType = require(`../exceptions/exceptions`)
+const ExceptionType = require(`../exceptions/exceptions`);
 
 async function getAllUsers() {
   const data = await getAllUsersDB();
