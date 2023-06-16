@@ -13,6 +13,11 @@ const ExceptionType = {
   DB_DELETE_TASK_NOT_DELETED: "Task doesn't delete",
   DB_PATCH_TASK_NOT_PATCHED: "Task doesn't partially update",
 
+  DB_API_CREATE_ALREADY_EXIST: "user alraedy exist",
+  DB_API_CREATE_NOT_CREATED: "user not created",
+  DB_API_AUTH_USER_NOT_FOUND: "user not found",
+  DB_API_AUTH_PWD_NOT_MATCH: "password not match",
+
   ID_NOT_NUMBER: "id isn't a number",
   ID_NEGATIVE: 'id is less than zero',
 
@@ -29,6 +34,11 @@ const ExceptionType = {
   TASK_TITLE_INVALID: 'incorrect task',
   TASK_USERID_INVALID: 'incorrect user_id',
   TASK_USERID_TOO_SMALL: 'user_id is less than zero',
+
+  API_EMAIL_EMPTY: 'API email is empty',
+  API_PWD_EMPTY: 'API pwd is empty',
+  API_EMAIL_INVALID: 'incorrect API email',
+  API_PWD_INVALID: 'API pwd is less than 8 symbols',
 };
 
 module.exports = ExceptionType;

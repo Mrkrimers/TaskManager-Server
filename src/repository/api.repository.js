@@ -1,6 +1,5 @@
 const pool = require(`../bd`);
 
-
 async function createUserDB(name, surname, email, pwd) {
     const client = await pool.connect();
     try {
@@ -21,4 +20,16 @@ async function createUserDB(name, surname, email, pwd) {
     }
 }
 
-module.exports = { createUserDB }
+async function getUserByEmailDB(email) {
+    const client = await pool.connect();
+    const sql = `SELECT * FROM users WHERE email = $1`
+
+    const data = (await client.query(sql, [email])).rows;
+
+    return data;
+}
+
+
+
+
+module.exports = { createUserDB, getUserByEmailDB }

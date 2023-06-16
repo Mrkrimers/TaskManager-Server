@@ -35,4 +35,15 @@ function isValidTaskBody(req, res, next) {
   next();
 }
 
-module.exports = { isValidID, isValidUserBody, isValidTaskBody };
+function isValidApiBody(req, res, next) {
+  const { email, pwd } = req.body;
+  if (!email) throw new Error(ExceptionType.API_EMAIL_EMPTY);
+  if (!pwd) throw new Error(ExceptionType.API_PWD_EMPTY);
+
+  if (!/^[\w\.\_\-]+@[a-z]{4,10}\.[a-z]{2,10}$/gm.test(email)) throw new Error(ExceptionType.API_EMAIL_INVALID);
+  if (pwd.length < 8) throw new Error(ExceptionType.API_PWD_INVALID);
+
+  next();
+}
+
+module.exports = { isValidID, isValidUserBody, isValidTaskBody, isValidApiBody };
